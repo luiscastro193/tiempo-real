@@ -1,0 +1,16 @@
+{
+	"name": "tiempo-real",
+	"version": "1.0.0",
+	"engines": {
+		"node": "8.x",
+		"npm": "5.x"
+	},
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"express": "*",
+		"socket.io": "2.0.4"
+	}
+}
