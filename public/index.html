@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Tiempo real</title>
+		<meta name="author" content="Luis Castro Martín">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+	</head>
+
+	<body>
+		<h3>Tiempo real</h3>
+		<ul id="mensajes"></ul>
+		<form autocomplete="off" onsubmit="enviar(); return false">
+			<input type="text" id="mensajeInput" onmouseenter="this.focus()" style="max-width: 17cm; width: 100%" autofocus >
+			<input type="submit" value="Enviar" >
+		</form>
+		<script>
+			"use strict";
+			if (location.protocol == 'http:') location.protocol = 'https:';
+			var mensajes = document.getElementById("mensajes");
+			var input = document.getElementById("mensajeInput");
+			var socket = io({transports: ['websocket']});
+			
+			socket.on('message', function(msg) {
+				let li = document.createElement("li");
+				li.textContent = msg;
+				mensajes.appendChild(li);
+			});
+			
+			function enviar() {
+				socket.emit('message', input.value);
+				input.value = '';
+			}
+		</script>
+	</body>
+</html>
