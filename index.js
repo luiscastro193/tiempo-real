@@ -6,7 +6,7 @@ const io = require('socket.io')(http, {transports: ['websocket']});
 
 app.set('port', process.env.PORT || 5000);
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', {maxAge: '5m', immutable: true}));
 
 io.on('connection', function(socket) {
 	socket.on('message', function(msg) {
