@@ -2,8 +2,8 @@
 	"name": "tiempo-real",
 	"version": "1.0.0",
 	"engines": {
-		"node": "8.x",
-		"npm": "5.x"
+		"node": "10.x",
+		"npm": "6.x"
 	},
 	"main": "index.js",
 	"scripts": {
