@@ -17,7 +17,7 @@
 		</form>
 		<script>
 			"use strict";
-			if (location.protocol == 'http:') location.protocol = 'https:';
+			if (location.protocol == 'http:' && location.hostname != 'localhost') location.protocol = 'https:';
 			var mensajes = document.getElementById("mensajes");
 			var input = document.getElementById("mensajeInput");
 			var socket = io({transports: ['websocket']});
